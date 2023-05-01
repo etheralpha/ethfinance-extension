@@ -8,6 +8,9 @@ User details:
 - Delegate info (soon™)
 
 
+<img src="img/example.png" width="800px">
+
+
 **Adding the extension**
 
 1. Download this repo and move the files to your desired location.

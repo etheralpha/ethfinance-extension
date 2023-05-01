@@ -75,14 +75,7 @@ async function toggle() {
       let profileHtml = (profile == "") ? "" : `&#8226; ${profile}`;
       let heart = (dootCount == "0") ? "&#x1F90D;" : "&#x1F499;";
       let plural = (dootCount == "1") ? "" : "s";
-      placement.innerHTML += `<span style="${styling}">&nbsp;&#8226; &#x1F90D; ${dootCount} Daily Doot${plural} ${profileHtml}</span>`;
-      // if (dootCount == "0") {
-      //   placement.innerHTML += `<span style="${styling}">&nbsp;&#8226; &#x1F90D; ${dootCount} Daily Doots ${profileHtml}</span>`;
-      // } else if (dootCount == "1") {
-      //   placement.innerHTML += `<span style="${styling}">&nbsp;&#8226; &#x1F499; ${dootCount} Daily Doot ${profileHtml}</span>`;
-      // } else {
-      //   placement.innerHTML += `<span style="${styling}">&nbsp;&#8226; &#x1F499; ${dootCount} Daily Doots ${profileHtml}</span>`;
-      // }
+      placement.innerHTML += `<span style="${styling}">&nbsp;&#8226; ${heart} ${dootCount} Daily Doot${plural} ${profileHtml}</span>`;
     });
     document.body.setAttribute("data-ethfinance-buddy", "enabled");
   }

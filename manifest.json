@@ -1,0 +1,18 @@
+{
+  "name": "EthFinance Buddy",
+  "description": "Display user details for r/EthFinance contributors.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["activeTab", "scripting"],
+  "content_scripts": [
+    {
+      "matches": ["https://reddit.com/*","https://www.reddit.com/*","https://old.reddit.com/*"], 
+      "css" : ["custom.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "/img/logo.png"
+  }
+}

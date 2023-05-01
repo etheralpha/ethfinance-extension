@@ -72,10 +72,10 @@ async function toggle() {
 
       let placement = userSettings.detailsPlacement(element);
       let styling = userSettings.detailsStyle;
-      let profileHtml = (profile == "") ? "" : `&#8226; ${profile}`;
+      let profileHtml = (profile == "") ? "" : `&#xB7; ${profile}`;
       let heart = (dootCount == "0") ? "&#x1F90D;" : "&#x1F499;";
       let plural = (dootCount == "1") ? "" : "s";
-      placement.innerHTML += `<span style="${styling}">&nbsp;&#8226; ${heart} ${dootCount} Daily Doot${plural} ${profileHtml}</span>`;
+      placement.innerHTML += `<span style="${styling}">&nbsp;&#xB7; ${heart} ${dootCount} Daily Doot${plural} ${profileHtml}</span>`;
     });
     document.body.setAttribute("data-ethfinance-buddy", "enabled");
   }

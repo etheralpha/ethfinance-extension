@@ -22,7 +22,7 @@ async function toggle() {
       "usernameSelector": "[data-testid='comment_author_link']",
       "detailsPlacement": function(el) { return el.parentNode.parentNode.parentNode.parentNode },
       "detailsStyle": "font-family: Noto Sans,Arial,sans-serif; font-size:12px; line-height:18px; color:var(--newCommunityTheme-metaText);",
-      "linkStyle": "color:var(--brand-experiment);"
+      "linkStyle": "color: var(--newCommunityTheme-linkText);"
     }
   };
 

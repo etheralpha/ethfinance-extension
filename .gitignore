@@ -1,10 +1,4 @@
 *~
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-colors.md
-vendor
 .DS_Store
 *.DS_Store
 **/.DS_Store

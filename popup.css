@@ -8,16 +8,19 @@ html {
   padding: 8px;
   background-color: var(--dark);
   text-align: center;
+  color: var(--light);
 }
 .title {
   margin-top: 0px;
   padding-top: 0;
   line-height: 1.05;
   text-align: center;
-  color: var(--light);
 }
 .credit {
   color: var(--muted);
+}
+.options {
+  text-align: left;
 }
 hr {
   border: none;

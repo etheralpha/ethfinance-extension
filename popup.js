@@ -39,17 +39,20 @@ async function toggle() {
   profiles = await profilesRes.json();
 
 
-  // show details
-  if (document.body.getAttribute('data-ethfinance-buddy') === "enabled") {
-    // already enabled, do nothing
-  } else {
-    let userSettings = settings.newReddit;
-    let url = window.location.href;
-    if (url.includes("old.reddit")) {
-      userSettings = settings.oldReddit;
-    }
+  // set settings for reddit type
+  let userSettings = settings.newReddit;
+  let url = window.location.href;
+  if (url.includes("old.reddit")) {
+    userSettings = settings.oldReddit;
+  }
 
-    document.querySelectorAll(userSettings.usernameSelector).forEach(element => {
+
+  // show details
+  document.querySelectorAll(userSettings.usernameSelector).forEach(element => {
+    if (element.getAttribute('data-eb-details') == "true") {
+      // already set, do nothing
+    } else {
+      element.setAttribute("data-eb-details", "true");
       let username = element.innerText.toLowerCase();
       let dootskey = `[${username}](https://reddit.com/u/${username})`;
       let dootsObj = doots.filter(entry => entry["Username"].toLowerCase() == `${dootskey}`);
@@ -72,11 +75,12 @@ async function toggle() {
 
       let placement = userSettings.detailsPlacement(element);
       let styling = userSettings.detailsStyle;
-      let profileHtml = (profile == "") ? "" : `&#xB7; ${profile}`;
-      let heart = (dootCount == "0") ? "&#x1F90D;" : "&#x1F499;";
+      let separator = `&nbsp;&#xB7;`;
+      let heart = `&#x1F90D;`;
       let plural = (dootCount == "1") ? "" : "s";
-      placement.innerHTML += `<span style="${styling}">&nbsp;&#xB7; ${heart} ${dootCount} Daily Doot${plural} ${profileHtml}</span>`;
-    });
-    document.body.setAttribute("data-ethfinance-buddy", "enabled");
-  }
+      let dootDetails = (dootCount == "0") ? "" : `${separator} ${heart} ${dootCount} doot${plural}`;
+      let profileDetails = (profile == "") ? "" : `${separator} ${profile}`;
+      placement.innerHTML += `<span style="${styling}">${dootDetails}${profileDetails}</span>`;
+    }
+  });
 }

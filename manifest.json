@@ -3,16 +3,20 @@
   "description": "Display user details for r/EthFinance contributors.",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": ["activeTab", "scripting"],
+  "permissions": ["activeTab", "scripting", "storage"],
+  // "applications": {
+  //   "gecko": {
+  //     "id": "ethfinance-buddy@etheralpha.org"
+  //   }
+  // },
+  "action": {
+    "default_icon": "/img/logo.png"
+  },
   "content_scripts": [
     {
-      "matches": ["https://reddit.com/*","https://www.reddit.com/*","https://old.reddit.com/*"], 
-      "css" : ["custom.css"],
+      "matches": ["https://reddit.com/*","https://www.reddit.com/*","https://old.reddit.com/*","https://kbin.social/*"], 
+      "js" : ["settings.js","main.js"],
       "run_at": "document_idle"
     }
-  ],
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": "/img/logo.png"
-  }
+  ]
 }

@@ -14,7 +14,7 @@ const siteConfigs = {
     "enabled": newRedditEnabled,
     "usernameSelector": "[data-testid='comment_author_link']",
     "detailsPlacement": function(el) { return el.parentNode.parentNode.parentNode.parentNode },
-    "detailsStyle": "font-family: Noto Sans,Arial,sans-serif; font-size:12px; line-height:18px; display:contents; color:var(--newCommunityTheme-metaText);",
+    "detailsStyle": "font-family: Noto Sans,Arial,sans-serif; font-size:12px; line-height:18px; color:var(--newCommunityTheme-metaText);",
     "linkStyle": "color: var(--newCommunityTheme-linkText);",
     "delay": 1000,
     "interval": 4000

@@ -111,7 +111,7 @@ async function getData() {
 
 // show user doot count and profiles
 function showDetails(doots, profiles) {
-  console.log(document.querySelectorAll(config.usernameSelector).length);
+  // console.log(document.querySelectorAll(config.usernameSelector).length);
   document.querySelectorAll(config.usernameSelector).forEach(element => {
     if (element.getAttribute('data-eb-details') == "true") {
       // already set, do nothing
@@ -125,9 +125,8 @@ function showDetails(doots, profiles) {
       let profileDetails = "";
 
       if (dootCountEnabled) {
-        let dootskey = `[${username}](https://reddit.com/u/${username})`;
-        let dootsObj = doots.filter(entry => entry["Username"].toLowerCase() == `${dootskey}`);
-        let dootCount = dootsObj[0] ? dootsObj[0]["Daily Doots"] : "0";
+        let dootsObj = doots.filter(entry => entry["username"].toLowerCase() == username);
+        let dootCount = dootsObj[0] ? dootsObj[0]["doots"] : "0";
         let heart = `&#x1F90D;`;
         let plural = (dootCount == "1") ? "" : "s";
         dootDetails = (dootCount == "0") ? "" : `${separator} ${heart} ${dootCount} doot${plural}`;

@@ -3,19 +3,21 @@ const siteConfigs = {
     "site": "oldReddit",
     "enabled": oldRedditEnabled,
     "usernameSelector": ".author",
-    "detailsPlacement": function(el) { return el.parentNode },
+    "detailsPlacement": function (el) { return el.parentNode },
     "detailsStyle": "",
     "linkStyle": "",
+    "postProcess": function (el, dp) { return },
     "delay": 1000,
     "interval": 4000
   },
   "newReddit": {
     "site": "newReddit",
     "enabled": newRedditEnabled,
-    "usernameSelector": "[data-testid='comment_author_link']",
-    "detailsPlacement": function(el) { return el.parentNode.parentNode.parentNode.parentNode },
-    "detailsStyle": "font-family: Noto Sans,Arial,sans-serif; font-size:12px; line-height:18px; color:var(--newCommunityTheme-metaText);",
-    "linkStyle": "color: var(--newCommunityTheme-linkText);",
+    "usernameSelector": "[noun='comment_author'] a",
+    "detailsPlacement": function (el) { return el.parentNode.parentNode.parentNode.parentNode },
+    "detailsStyle": "font-size:.75rem;color:var(--color-neutral-content-weak);",
+    "linkStyle": "",
+    "postProcess": function (el, dp) { dp.innerHTML += `<style>time:first-child{display:none}</style>` },
     "delay": 1000,
     "interval": 4000
   },
@@ -120,7 +122,7 @@ function showDetails(doots, profiles) {
       let username = element.innerText.toLowerCase();
       let detailsPlacement = config.detailsPlacement(element);
       let detailsStyle = config.detailsStyle;
-      let separator = `&nbsp;&#xB7;`;
+      let separator = "&nbsp;•";
       let dootDetails = "";
       let profileDetails = "";
 
@@ -151,6 +153,8 @@ function showDetails(doots, profiles) {
       }
 
       detailsPlacement.innerHTML += `<span style="${detailsStyle}">${dootDetails}${profileDetails}</span>`;
+
+      config.postProcess(element, detailsPlacement);
     }
   });
 }

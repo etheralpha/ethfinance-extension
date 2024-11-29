@@ -8,7 +8,7 @@ const kbinEnabled = true;
 
 // toggle user details on/off
 const dootCountEnabled = true;
-const profilesEnabled = true;
+const profilesEnabled = false;
 
 // toggle settings for kbin
 const kbinSortNewEnabled = true; // sort comments by new as default
